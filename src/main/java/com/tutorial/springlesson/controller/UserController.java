@@ -1,5 +1,6 @@
 package com.tutorial.springlesson.controller;
 
+import com.tutorial.springlesson.model.User;
 import com.tutorial.springlesson.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,13 +27,15 @@ public class UserController {
 
     @GetMapping("/")
     public String mainPage() {
+
         return userService.getMainPageContent();
     }
 
     // CRUD -> Create, Read, Update, Delete
-    @GetMapping("/hello") // Read
-    public String sayHello() {
-        return "Hello, world!";
+    @GetMapping("/user") // Read
+    public User getUser() {
+
+        return userService.getUser();
     }
 }
 
